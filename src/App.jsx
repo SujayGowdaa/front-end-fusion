@@ -1,4 +1,5 @@
-import { useReducer } from 'react';
+/* eslint-disable no-case-declarations */
+import { useReducer, useState } from 'react';
 import Form from './components/Form';
 import Questions from './components/Questions';
 import Error from './components/Error';
@@ -14,64 +15,216 @@ import jsHard from './data//js/hard.json';
 import reactEasy from './data//react/easy.json';
 import reactMedium from './data//react/medium.json';
 import reactHard from './data//react/hard.json';
+import FinishScreen from './components/FinishScreen';
+import AlertScreen from './components/AlertScreen';
+import { createPortal } from 'react-dom';
 
 const initialState = {
   questions: [],
   status: 'form', //  start, error, active, finished
   error: '',
   index: 0,
+  points: 0,
+  timeRemaining: undefined,
+  highScore: 0,
+  answer: null,
+  length: undefined,
 };
 
-function reducer(state, { type, payload: { mode, topic } }) {
-  switch (type) {
+function reducer(state, action) {
+  switch (action.type) {
     case 'start':
-      if (topic === '' && mode === '') {
+      if (action.payload.topic === '' && action.payload.mode === '') {
         return { ...state, error: 'Select Topic and Mode' };
-      } else if (topic === '') {
+      } else if (action.payload.topic === '') {
         return { ...state, error: 'Select Topic' };
-      } else if (mode === '') {
+      } else if (action.payload.mode === '') {
         return { ...state, error: 'Select Mode' };
       } else {
-        if (topic === 'HTML' && mode === 'EASY')
-          return { ...state, status: 'active', questions: htmlEasy };
-        if (topic === 'HTML' && mode === 'MEDIUM')
-          return { ...state, status: 'active', questions: htmlMedium };
-        if (topic === 'HTML' && mode === 'HARD')
-          return { ...state, status: 'active', questions: htmlHard };
-        if (topic === 'CSS' && mode === 'EASY')
-          return { ...state, status: 'active', questions: cssEasy };
-        if (topic === 'CSS' && mode === 'MEDIUM')
-          return { ...state, status: 'active', questions: cssMedium };
-        if (topic === 'CSS' && mode === 'HARD')
-          return { ...state, status: 'active', questions: cssHard };
-        if (topic === 'JS' && mode === 'EASY')
+        if (action.payload.topic === 'HTML' && action.payload.mode === 'EASY')
+          return {
+            ...state,
+            status: 'active',
+            questions: htmlEasy,
+            length: htmlEasy.length,
+            timeRemaining: htmlEasy.length * 15,
+          };
+        if (action.payload.topic === 'HTML' && action.payload.mode === 'MEDIUM')
+          return {
+            ...state,
+            status: 'active',
+            questions: htmlMedium,
+            length: htmlMedium.length,
+            timeRemaining: htmlMedium.length * 15,
+          };
+        if (action.payload.topic === 'HTML' && action.payload.mode === 'HARD')
+          return {
+            ...state,
+            status: 'active',
+            questions: htmlHard,
+            length: htmlHard.length,
+            timeRemaining: htmlHard.length * 15,
+          };
+        if (action.payload.topic === 'CSS' && action.payload.mode === 'EASY')
+          return {
+            ...state,
+            status: 'active',
+            questions: cssEasy,
+            length: cssEasy.length,
+            timeRemaining: cssEasy.length * 15,
+          };
+        if (action.payload.topic === 'CSS' && action.payload.mode === 'MEDIUM')
+          return {
+            ...state,
+            status: 'active',
+            questions: cssMedium,
+            length: cssMedium.length,
+            timeRemaining: cssMedium.length * 15,
+          };
+        if (action.payload.topic === 'CSS' && action.payload.mode === 'HARD')
+          return {
+            ...state,
+            status: 'active',
+            questions: cssHard,
+            length: cssHard.length,
+            timeRemaining: cssHard.length * 15,
+          };
+        if (action.payload.topic === 'JS' && action.payload.mode === 'EASY')
           return { ...state, status: 'active', questions: jsEasy };
-        if (topic === 'JS' && mode === 'MEDIUM')
-          return { ...state, status: 'active', questions: jsMedium };
-        if (topic === 'JS' && mode === 'HARD')
-          return { ...state, status: 'active', questions: jsHard };
-        if (topic === 'REACT' && mode === 'EASY')
-          return { ...state, status: 'active', questions: reactEasy };
-        if (topic === 'REACT' && mode === 'MEDIUM')
-          return { ...state, status: 'active', questions: reactMedium };
-        if (topic === 'REACT' && mode === 'HARD')
-          return { ...state, status: 'active', questions: reactHard };
+        if (action.payload.topic === 'JS' && action.payload.mode === 'MEDIUM')
+          return {
+            ...state,
+            status: 'active',
+            questions: jsMedium,
+            length: jsMedium.length,
+            timeRemaining: jsMedium.length * 15,
+          };
+        if (action.payload.topic === 'JS' && action.payload.mode === 'HARD')
+          return {
+            ...state,
+            status: 'active',
+            questions: jsHard,
+            length: jsHard.length,
+            timeRemaining: jsHard.length * 15,
+          };
+        if (action.payload.topic === 'REACT' && action.payload.mode === 'EASY')
+          return {
+            ...state,
+            status: 'active',
+            questions: reactEasy,
+            length: reactEasy.length,
+            timeRemaining: reactEasy.length * 15,
+          };
+        if (
+          action.payload.topic === 'REACT' &&
+          action.payload.mode === 'MEDIUM'
+        )
+          return {
+            ...state,
+            status: 'active',
+            questions: reactMedium,
+            length: reactMedium.length,
+            timeRemaining: reactMedium.length * 15,
+          };
+        if (action.payload.topic === 'REACT' && action.payload.mode === 'HARD')
+          return {
+            ...state,
+            status: 'active',
+            questions: reactHard,
+            length: reactHard.length,
+            timeRemaining: reactHard.length * 15,
+          };
       }
+      break;
+
+    case 'new':
+      const question = state.questions.at(state.index);
+      return {
+        ...state,
+        points:
+          question.correctAnswer === action.payload
+            ? state.points + 1
+            : state.points,
+        answer: action.payload,
+      };
+    case 'runnng':
+      return {
+        ...state,
+        timeRemaining: state.timeRemaining - 1,
+        status: state.timeRemaining === 1 ? 'finish' : state.status,
+        points: state.points,
+        highScore:
+          state.points > state.highScore ? state.points : state.highScore,
+      };
+    case 'next':
+      return {
+        ...state,
+        index: state.index + 1,
+        answer: null,
+        highScore:
+          state.points > state.highScore ? state.points : state.highScore,
+      };
+    case 'finish':
+      return { ...state, status: 'finish' };
+    case 'restart':
+      return { ...state, ...initialState, highScore: state.highScore };
   }
 }
+
 function App() {
-  const [{ questions, error, status }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  // APP COMPONENT
+  const [dialog, setDialog] = useState(false);
+  const [
+    {
+      questions,
+      error,
+      index,
+      status,
+      answer,
+      length,
+      points,
+      highScore,
+      timeRemaining,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   return (
     <div>
       <h1>FrontEnd Fusion</h1>
-      <p>Challenge Yourself, Master the Frontend!</p>
-      {status === 'form' && <Form dispatch={dispatch} />}
+
+      {status === 'form' && (
+        <>
+          <p>Challenge Yourself, Master the Frontend!</p>{' '}
+          <Form dispatch={dispatch} />
+        </>
+      )}
       {error && <Error error={error} />}
-      {status === 'active' && <Questions questions={questions} />}
+      {status === 'active' && (
+        <Questions
+          questions={questions[index]}
+          dispatch={dispatch}
+          answer={answer}
+          length={length}
+          index={index}
+          timeRemaining={timeRemaining}
+          setDialog={setDialog}
+        />
+      )}
+      {status === 'finish' && (
+        <FinishScreen
+          dispatch={dispatch}
+          points={points}
+          highScore={highScore}
+          length={length}
+          timeRemaining={timeRemaining}
+        />
+      )}
+      {dialog &&
+        createPortal(
+          <AlertScreen dispatch={dispatch} setDialog={setDialog} />,
+          document.querySelector('#dialog')
+        )}
     </div>
   );
 }

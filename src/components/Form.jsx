@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 
@@ -11,7 +12,6 @@ export default function Form({ dispatch }) {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch({ type: 'start', payload: inputs });
-    console.log(inputs);
   }
 
   return (

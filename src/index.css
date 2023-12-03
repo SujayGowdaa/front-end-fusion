@@ -2,8 +2,31 @@
 
 body {
   font-family: 'Nunito', sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 .active {
   font-weight: 800;
+}
+
+.btn {
+  padding: 12px 24px;
+}
+
+.correct {
+  background-color: green;
+}
+.wrong {
+  background-color: red;
+}
+.selected {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
+}
+.orange {
+  background-color: orange;
 }
