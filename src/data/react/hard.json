@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What is the purpose of 'shouldComponentUpdate' method in React?",
+    "answers": [
+      "It tells React that the component will be updated",
+      "It updates the state of the component",
+      "It triggers the rendering process",
+      "It determines if the component should be re-rendered"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What is the significance of 'useEffect' in React Hooks?",
+    "answers": [
+      "It replaces class lifecycle methods",
+      "It manages the component's state",
+      "It adds inline CSS styles",
+      "It optimizes the rendering process"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'StrictMode' in React?",
+    "answers": [
+      "It enforces strict JavaScript syntax",
+      "It optimizes the performance of React components",
+      "It highlights potential problems in React components",
+      "It restricts the use of certain HTML elements in JSX"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the difference between 'controlled' and 'uncontrolled' components in React forms?",
+    "answers": [
+      "There is no difference",
+      "Controlled components have a state managed by React, while uncontrolled components have their state managed by DOM",
+      "Controlled components are used in class-based components, while uncontrolled components are used in functional components",
+      "Uncontrolled components are used in class-based components, while controlled components are used in functional components"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which feature in React helps in avoiding unnecessary rendering of components?",
+    "answers": ["PureComponent", "Fragment", "Memo", "Reducer"],
+    "correctAnswer": 2
+  }
+]

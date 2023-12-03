@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What keyword is used to declare a variable in JavaScript?",
+    "answers": ["const", "var", "int", "let"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which type of language is JavaScript?",
+    "answers": ["Query language", "Markup language", "Styling language", "Programming language"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What symbol is used for single-line comments in JavaScript?",
+    "answers": ["/*", "//", "--", "#"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which function is used to print content to the console in JavaScript?",
+    "answers": ["print()", "log()", "console.log()", "display()"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the result of 10 + '5' in JavaScript?",
+    "answers": ["Error", "105", "NaN", "15"],
+    "correctAnswer": 1
+  }
+]

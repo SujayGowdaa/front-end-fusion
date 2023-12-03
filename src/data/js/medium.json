@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the 'typeof' operator used for in JavaScript?",
+    "answers": [
+      "Checking if a variable is defined",
+      "Determining the type of a variable",
+      "Assigning a variable",
+      "Comparing two variables"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which method is used to add elements to the end of an array in JavaScript?",
+    "answers": ["append()", "concat()", "addToEnd()", "push()"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What does the 'NaN' in JavaScript stand for?",
+    "answers": [
+      "Null and Negative",
+      "New and Nullified",
+      "No Answer",
+      "Not a Number"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What is the purpose of 'let' and 'const' compared to 'var' in JavaScript?",
+    "answers": [
+      "They have block scope",
+      "They are for numbers only",
+      "They are obsolete",
+      "They are interchangeable"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Which loop in JavaScript is known as an entry-controlled loop?",
+    "answers": ["while loop", "for loop", "do-while loop", "if loop"],
+    "correctAnswer": 1
+  }
+]

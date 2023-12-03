@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is a closure in JavaScript?",
+    "answers": [
+      "A function with no parameters",
+      "A function that returns multiple values",
+      "A function that can't be accessed",
+      "A function inside another function that has access to its parent's variables"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What does the 'this' keyword refer to in JavaScript?",
+    "answers": [
+      "The global object",
+      "The current function",
+      "The previous value",
+      "The parent object"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is the purpose of the 'bind()' method in JavaScript?",
+    "answers": [
+      "To convert to a boolean value",
+      "To bind the value of 'this' in a function",
+      "To create a new array",
+      "To concatenate strings"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What does 'use strict' do in JavaScript?",
+    "answers": [
+      "Allows more flexibility in code",
+      "Disables all warnings",
+      "Enables debugging mode",
+      "Enforces stricter syntax checking"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What does the 'new' keyword do in JavaScript?",
+    "answers": [
+      "Creates a new object instance",
+      "Creates a new variable",
+      "Executes a function",
+      "Concatenates strings"
+    ],
+    "correctAnswer": 0
+  }
+]

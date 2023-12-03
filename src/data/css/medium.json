@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What does the 'float' property in CSS do?",
+    "answers": [
+      "Makes elements disappear",
+      "Changes the font size",
+      "Aligns text to the left or right within its containing element",
+      "Adds shadows to text"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the purpose of 'box-sizing' property in CSS?",
+    "answers": [
+      "Specifies the border style",
+      "Defines how the total width and height of an element is calculated",
+      "Defines the width of an element",
+      "Controls the margin of an element"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What does z-index in CSS specify?",
+    "answers": [
+      "The size of an element",
+      "The vertical position of an element",
+      "The horizontal position of an element",
+      "The depth position of an element"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What does 'flex-grow' property in CSS do?",
+    "answers": [
+      "Specifies the alignment of flex items",
+      "Determines how much an item will grow relative to the rest",
+      "Defines the flex-basis of a flex container",
+      "Sets the initial size of a flex item"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which CSS property is used to set the background color of an element?",
+    "answers": ["background-color", "color", "bgcolor", "bg-color"],
+    "correctAnswer": 0
+  }
+]

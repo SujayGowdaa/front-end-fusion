@@ -1,0 +1,37 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "answers": [
+      "Home Tool Markup Language",
+      "Hyperlinks and Text Markup Language",
+      "Hyperlink Transfer Markup Language",
+      "Hyper Text Markup Language"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which tag is used to create a hyperlink in HTML?",
+    "answers": ["<link>", "<a>", "<p>", "<href>"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What is the correct HTML element for inserting a line break?",
+    "answers": ["<break>", "<lb>", "<line>", "<br>"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which HTML attribute is used to define inline styles?",
+    "answers": ["font", "css", "style", "class"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the purpose of 'head' tag in HTML?",
+    "answers": [
+      "Defines the header section of a document",
+      "Contains metadata about the document",
+      "Specifies the main content of a document",
+      "Defines a container for navigation links"
+    ],
+    "correctAnswer": 1
+  }
+]

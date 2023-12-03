@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the purpose of 'setState()' method in React?",
+    "answers": [
+      "To update the component's state",
+      "To create a new component",
+      "To define component properties",
+      "To handle user events"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What does the 'componentDidMount()' lifecycle method do in React?",
+    "answers": [
+      "Renders the component",
+      "Handles user input",
+      "Updates the component's state",
+      "Fetches data from an API"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What is the purpose of 'React.Fragment' in React?",
+    "answers": [
+      "To manage state",
+      "To create a new component",
+      "To wrap multiple elements without adding an extra node to the DOM",
+      "To define component properties"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the significance of 'render()' method in React components?",
+    "answers": [
+      "It initializes the component",
+      "It updates the component's state",
+      "It returns the React element to be rendered",
+      "It defines the component's structure"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the purpose of 'key' prop in React lists?",
+    "answers": [
+      "To define the list's structure",
+      "To provide a unique identifier for list items",
+      "To iterate through list elements",
+      "To style list items"
+    ],
+    "correctAnswer": 1
+  }
+]

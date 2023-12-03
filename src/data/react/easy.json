@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is React?",
+    "answers": [
+      "A programming language",
+      "A JavaScript framework",
+      "A CSS framework",
+      "A library for building user interfaces"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What is JSX in React?",
+    "answers": [
+      "JavaScript Extension",
+      "JavaScript XML",
+      "Java Extension",
+      "Java XML"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What is the main purpose of using props in React?",
+    "answers": [
+      "To manage state",
+      "To define CSS styles",
+      "To pass data between components",
+      "To render HTML"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the purpose of 'state' in React?",
+    "answers": [
+      "To manage interactions between components",
+      "To define component properties",
+      "To handle user events",
+      "To store local data within a component"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which method is used to change the state in React?",
+    "answers": [
+      "this.setState()",
+      "this.modifyState()",
+      "this.changeState()",
+      "this.alterState()"
+    ],
+    "correctAnswer": 0
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the purpose of the 'target' attribute in <a> tag?",
+    "answers": [
+      "Specifies where to open the linked document",
+      "Defines the link's color",
+      "Sets the link's appearance",
+      "Specifies the link destination"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Which HTML5 element is used for navigation links?",
+    "answers": ["<navigate>", "<link>", "<nav>", "<navigation>"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What does the 'async' attribute do in <script> tag?",
+    "answers": [
+      "Specifies the script source",
+      "Loads the script asynchronously",
+      "Defines the script's functionality",
+      "Executes the script immediately"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which HTML5 attribute is used to specify additional information about an element?",
+    "answers": ["data-info", "info", "description", "data-*"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What does the 'role' attribute in HTML5 define?",
+    "answers": [
+      "The element's alignment",
+      "The element's size",
+      "The element's purpose",
+      "The element's visibility"
+    ],
+    "correctAnswer": 2
+  }
+]

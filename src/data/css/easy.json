@@ -1,0 +1,32 @@
+[
+  {
+    "question": "What does CSS stand for?",
+    "answers": [
+      "Colorful Style Sheets",
+      "Computer Style Sheets",
+      "Cascading Style Sheets",
+      "Creative Style Sheets"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Which property is used to change text color in CSS?",
+    "answers": ["color", "text-style", "font-color", "text-color"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "How do you select an element with id 'myElement' in CSS?",
+    "answers": ["*myElement", ".myElement", "&myElement", "#myElement"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What is the default display property for a <div> element in CSS?",
+    "answers": ["inline", "inline-block", "flex", "block"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which CSS property is used to control the spacing between elements?",
+    "answers": ["padding", "margin", "spacing", "gap"],
+    "correctAnswer": 1
+  }
+]

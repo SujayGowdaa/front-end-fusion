@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the purpose of 'alt' attribute in <img> tag?",
+    "answers": [
+      "Specifies the image dimensions",
+      "Sets the image border",
+      "Defines the image source",
+      "Provides alternative text for an image"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which tag is used to create an unordered list in HTML?",
+    "answers": ["<list>", "<ol>", "<li>", "<ul>"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What does the 'DOCTYPE' declaration do in HTML?",
+    "answers": [
+      "Defines a new tag",
+      "Creates a link to an external document",
+      "Defines the type of document",
+      "Declares the document's style"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the purpose of 'meta' tag in HTML?",
+    "answers": [
+      "Defines the main content of a document",
+      "Specifies the character encoding for the document",
+      "Sets the viewport for a web page",
+      "Creates a container for JavaScript code"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which HTML attribute is used to define a unique identifier for an element?",
+    "answers": ["class", "id", "identifier", "unique"],
+    "correctAnswer": 1
+  }
+]

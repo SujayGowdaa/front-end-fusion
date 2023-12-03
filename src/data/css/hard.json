@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What does the 'will-change' property do in CSS?",
+    "answers": [
+      "Creates animation effects",
+      "Hints browsers about elements that are likely to be modified",
+      "Defines the way an element is displayed",
+      "Controls the visibility of an element"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What is the purpose of 'rem' unit in CSS?",
+    "answers": [
+      "Relative to the viewport's width",
+      "Relative to the parent element's font-size",
+      "Relative to the viewport's height",
+      "Relative to the font-size of the root element"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "What does 'opacity' property in CSS determine?",
+    "answers": [
+      "The level of visibility of an element",
+      "The transparency of an element",
+      "The blending mode of an element",
+      "The display mode of an element"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What is the purpose of 'pointer-events' property in CSS?",
+    "answers": [
+      "Specifies the mouse cursor type",
+      "Determines if an element can be clicked",
+      "Specifies the element's position",
+      "Controls the element's border style"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which CSS property is used to make a rounded corner of an element?",
+    "answers": [
+      "border-radius",
+      "corner-style",
+      "round-border",
+      "border-curve"
+    ],
+    "correctAnswer": 0
+  }
+]
