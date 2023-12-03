@@ -1,100 +1,77 @@
-/* eslint-disable react/no-unescaped-entities */
-import { useState } from 'react';
+import { useReducer } from 'react';
+import Form from './components/Form';
+import Questions from './components/Questions';
+import Error from './components/Error';
+import htmlEasy from './data//html/easy.json';
+import htmlMedium from './data//html/medium.json';
+import htmlHard from './data//html/hard.json';
+import cssEasy from './data//css/easy.json';
+import cssMedium from './data//css/medium.json';
+import cssHard from './data//css/hard.json';
+import jsEasy from './data//js/easy.json';
+import jsMedium from './data//js/medium.json';
+import jsHard from './data//js/hard.json';
+import reactEasy from './data//react/easy.json';
+import reactMedium from './data//react/medium.json';
+import reactHard from './data//react/hard.json';
 
-function App() {
-  const [inputs, setInputs] = useState({
-    topic: '',
-    mode: '',
-  });
-  const [selected, setSelected] = useState(null);
+const initialState = {
+  questions: [],
+  status: 'form', //  start, error, active, finished
+  error: '',
+  index: 0,
+};
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(inputs);
+function reducer(state, { type, payload: { mode, topic } }) {
+  switch (type) {
+    case 'start':
+      if (topic === '' && mode === '') {
+        return { ...state, error: 'Select Topic and Mode' };
+      } else if (topic === '') {
+        return { ...state, error: 'Select Topic' };
+      } else if (mode === '') {
+        return { ...state, error: 'Select Mode' };
+      } else {
+        if (topic === 'HTML' && mode === 'EASY')
+          return { ...state, status: 'active', questions: htmlEasy };
+        if (topic === 'HTML' && mode === 'MEDIUM')
+          return { ...state, status: 'active', questions: htmlMedium };
+        if (topic === 'HTML' && mode === 'HARD')
+          return { ...state, status: 'active', questions: htmlHard };
+        if (topic === 'CSS' && mode === 'EASY')
+          return { ...state, status: 'active', questions: cssEasy };
+        if (topic === 'CSS' && mode === 'MEDIUM')
+          return { ...state, status: 'active', questions: cssMedium };
+        if (topic === 'CSS' && mode === 'HARD')
+          return { ...state, status: 'active', questions: cssHard };
+        if (topic === 'JS' && mode === 'EASY')
+          return { ...state, status: 'active', questions: jsEasy };
+        if (topic === 'JS' && mode === 'MEDIUM')
+          return { ...state, status: 'active', questions: jsMedium };
+        if (topic === 'JS' && mode === 'HARD')
+          return { ...state, status: 'active', questions: jsHard };
+        if (topic === 'REACT' && mode === 'EASY')
+          return { ...state, status: 'active', questions: reactEasy };
+        if (topic === 'REACT' && mode === 'MEDIUM')
+          return { ...state, status: 'active', questions: reactMedium };
+        if (topic === 'REACT' && mode === 'HARD')
+          return { ...state, status: 'active', questions: reactHard };
+      }
   }
+}
+function App() {
+  const [{ questions, error, status }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   return (
     <div>
       <h1>FrontEnd Fusion</h1>
       <p>Challenge Yourself, Master the Frontend!</p>
-
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <h3>Select Topic</h3>
-          <div
-            className={`${selected === 'HTML' && 'active'}`}
-            onClick={() => {
-              setSelected('HTML');
-              setInputs((ps) => ({ ...ps, topic: 'HTML' }));
-            }}
-          >
-            HTML
-          </div>
-          <div
-            className={`${selected === 'CSS' && 'active'}`}
-            onClick={() => {
-              setSelected('CSS');
-              setInputs((ps) => ({ ...ps, topic: 'CSS' }));
-            }}
-          >
-            CSS
-          </div>
-          <div
-            className={`${selected === 'JS' && 'active'}`}
-            onClick={() => {
-              setSelected('JS');
-              setInputs((ps) => ({ ...ps, topic: 'JS' }));
-            }}
-          >
-            JS
-          </div>
-          <div
-            className={`${selected === 'REACT' && 'active'}`}
-            onClick={() => {
-              setSelected('REACT');
-              setInputs((ps) => ({ ...ps, topic: 'REACT' }));
-            }}
-          >
-            React
-          </div>
-        </div>
-        <div>
-          <h3>Select Mode</h3>
-          <input
-            type='radio'
-            id='easy'
-            value='easy'
-            name='mode'
-            onChange={(e) =>
-              setInputs((ps) => ({ ...ps, mode: e.target.value }))
-            }
-          />
-          <label htmlFor='easy'>Easy</label>
-
-          <input
-            type='radio'
-            id='medium'
-            value='medium'
-            name='mode'
-            onChange={(e) => {
-              return setInputs((ps) => ({ ...ps, mode: e.target.value }));
-            }}
-          />
-          <label htmlFor='medium'>Medium</label>
-
-          <input
-            type='radio'
-            id='hard'
-            value='hard'
-            name='mode'
-            onChange={(e) => {
-              setInputs((ps) => ({ ...ps, mode: e.target.value }));
-            }}
-          />
-          <label htmlFor='hard'>Hard</label>
-        </div>
-        <button type='submit'>Let's Go</button>
-      </form>
+      {status === 'form' && <Form dispatch={dispatch} />}
+      {error && <Error error={error} />}
+      {status === 'active' && <Questions questions={questions} />}
     </div>
   );
 }
