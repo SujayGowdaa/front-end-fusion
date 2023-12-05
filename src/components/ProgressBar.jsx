@@ -5,7 +5,7 @@ export default function ProgressBar({ length, index, answer }) {
   return (
     <div>
       <span>
-        Question {index}/{length}
+        Question {isAnswered ? index + 1 : index}/{length}
       </span>
       <label htmlFor='progress'>Progress</label>
       <progress

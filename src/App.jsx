@@ -21,7 +21,7 @@ import { createPortal } from 'react-dom';
 
 const initialState = {
   questions: [],
-  status: 'form', //  start, error, active, finished
+  status: 'form',
   error: '',
   index: 0,
   points: 0,

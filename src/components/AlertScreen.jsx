@@ -5,7 +5,7 @@ import Button from './Button';
 export default function AlertScreen({ dispatch, setDialog }) {
   return (
     <div>
-      <h3>are you sure you want to end this quiz?</h3>
+      <h3>Are you sure you want to end the quiz?</h3>
       <Button
         onClick={() => {
           dispatch({ type: 'finish' });

@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
+import Input from './Input';
+import Button from './Button';
+import Topic from './Topic';
 
 export default function Form({ dispatch }) {
+  const [selected, setSelected] = useState(null);
   const [inputs, setInputs] = useState({
     topic: '',
     mode: '',
   });
-  const [selected, setSelected] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,77 +21,38 @@ export default function Form({ dispatch }) {
     <form onSubmit={(e) => handleSubmit(e)}>
       <div>
         <h3>Select Topic</h3>
-        <div
-          className={`${selected === 'HTML' && 'active'}`}
-          onClick={() => {
-            setSelected('HTML');
-            setInputs((ps) => ({ ...ps, topic: 'HTML' }));
-          }}
-        >
-          HTML
-        </div>
-        <div
-          className={`${selected === 'CSS' && 'active'}`}
-          onClick={() => {
-            setSelected('CSS');
-            setInputs((ps) => ({ ...ps, topic: 'CSS' }));
-          }}
-        >
-          CSS
-        </div>
-        <div
-          className={`${selected === 'JS' && 'active'}`}
-          onClick={() => {
-            setSelected('JS');
-            setInputs((ps) => ({ ...ps, topic: 'JS' }));
-          }}
-        >
-          JS
-        </div>
-        <div
-          className={`${selected === 'REACT' && 'active'}`}
-          onClick={() => {
-            setSelected('REACT');
-            setInputs((ps) => ({ ...ps, topic: 'REACT' }));
-          }}
-        >
-          React
-        </div>
+        <Topic
+          topic='HTML'
+          setInputs={setInputs}
+          setSelected={setSelected}
+          selected={selected}
+        />
+        <Topic
+          topic='CSS'
+          setInputs={setInputs}
+          setSelected={setSelected}
+          selected={selected}
+        />
+        <Topic
+          topic='JS'
+          setInputs={setInputs}
+          setSelected={setSelected}
+          selected={selected}
+        />
+        <Topic
+          topic='REACT'
+          setInputs={setInputs}
+          setSelected={setSelected}
+          selected={selected}
+        />
       </div>
       <div>
         <h3>Select Mode</h3>
-        <input
-          type='radio'
-          id='easy'
-          value='EASY'
-          name='mode'
-          onChange={(e) => setInputs((ps) => ({ ...ps, mode: e.target.value }))}
-        />
-        <label htmlFor='easy'>Easy</label>
-
-        <input
-          type='radio'
-          id='medium'
-          value='MEDIUM'
-          name='mode'
-          onChange={(e) => {
-            return setInputs((ps) => ({ ...ps, mode: e.target.value }));
-          }}
-        />
-        <label htmlFor='medium'>Medium</label>
-
-        <input
-          type='radio'
-          id='hard'
-          value='HARD'
-          name='mode'
-          onChange={(e) => {
-            setInputs((ps) => ({ ...ps, mode: e.target.value }));
-          }}
-        />
-        <label htmlFor='hard'>Hard</label>
+        <Input id='EASY' value='EASY' name='Easy' setInputs={setInputs} />
+        <Input id='MEDIUM' value='MEDIUM' name='Medium' setInputs={setInputs} />
+        <Input id='HARD' value='HARD' name='Hard' setInputs={setInputs} />
       </div>
-      <button type='submit'>Let's Go</button>
+      <Button type='submit'>Let's Go</Button>
     </form>
   );
 }

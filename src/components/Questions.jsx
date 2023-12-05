@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from 'react';
 import Button from './Button';
 import ProgressBar from './ProgressBar';
+import Timer from './Timer';
 
 export default function Questions({
   dispatch,
@@ -14,18 +14,14 @@ export default function Questions({
 }) {
   const isAnswered = answer !== null;
 
-  useEffect(() => {
-    const timeInterval = setInterval(() => {
-      dispatch({ type: 'runnng' });
-    }, 1000);
-    return () => clearInterval(timeInterval);
-  }, [dispatch]);
-
   return (
     <>
       <ProgressBar length={length} index={index} answer={answer} />
-      <h3>{questions.question}</h3>
-      <p>{timeRemaining}</p>
+      <h2>
+        <span>{index + 1}.</span>
+        {questions.question}
+      </h2>
+      <Timer timeRemaining={timeRemaining} dispatch={dispatch} />
       {questions.answers.map((ans, index) => (
         <div key={ans}>
           <Button
