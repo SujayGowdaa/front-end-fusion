@@ -1,4 +1,4 @@
 /* eslint-disable react/prop-types */
 export default function Error({ error }) {
-  return <p>{error}</p>;
+  return <p className='error'>{error}</p>;
 }

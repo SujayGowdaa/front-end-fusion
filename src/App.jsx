@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-case-declarations */
 import { useReducer, useState } from 'react';
 import Form from './components/Form';
@@ -18,6 +19,8 @@ import reactHard from './data//react/hard.json';
 import FinishScreen from './components/FinishScreen';
 import AlertScreen from './components/AlertScreen';
 import { createPortal } from 'react-dom';
+import Header from './components/Header';
+import Main from './components/Main';
 
 const initialState = {
   questions: [],
@@ -90,7 +93,11 @@ function reducer(state, action) {
             timeRemaining: cssHard.length * 15,
           };
         if (action.payload.topic === 'JS' && action.payload.mode === 'EASY')
-          return { ...state, status: 'active', questions: jsEasy };
+          return {
+            ...state,
+            status: 'active',
+            questions: jsEasy,
+          };
         if (action.payload.topic === 'JS' && action.payload.mode === 'MEDIUM')
           return {
             ...state,
@@ -174,6 +181,7 @@ function reducer(state, action) {
 function App() {
   // APP COMPONENT
   const [dialog, setDialog] = useState(false);
+  const [theme, setTheme] = useState('light');
   const [
     {
       questions,
@@ -190,41 +198,44 @@ function App() {
   ] = useReducer(reducer, initialState);
 
   return (
-    <div>
-      <h1>FrontEnd Fusion</h1>
-
-      {status === 'form' && (
-        <>
-          <p>Challenge Yourself, Master the Frontend!</p>{' '}
-          <Form dispatch={dispatch} />
-        </>
-      )}
-      {error && <Error error={error} />}
-      {status === 'active' && (
-        <Questions
-          questions={questions[index]}
-          dispatch={dispatch}
-          answer={answer}
-          length={length}
-          index={index}
-          timeRemaining={timeRemaining}
-          setDialog={setDialog}
-        />
-      )}
-      {status === 'finish' && (
-        <FinishScreen
-          dispatch={dispatch}
-          points={points}
-          highScore={highScore}
-          length={length}
-          timeRemaining={timeRemaining}
-        />
-      )}
-      {dialog &&
-        createPortal(
-          <AlertScreen dispatch={dispatch} setDialog={setDialog} />,
-          document.querySelector('#dialog')
+    <div className='app' theme={theme}>
+      <Main>
+        {status === 'form' && (
+          <>
+            <Header setTheme={setTheme} theme={theme} />
+            <h2 className='title-secondary'>
+              Challenge Yourself, Master the Frontend!
+            </h2>
+            <Form dispatch={dispatch} />
+          </>
         )}
+        {error && <Error error={error} />}
+        {status === 'active' && (
+          <Questions
+            questions={questions[index]}
+            dispatch={dispatch}
+            answer={answer}
+            length={length}
+            index={index}
+            timeRemaining={timeRemaining}
+            setDialog={setDialog}
+          />
+        )}
+        {status === 'finish' && (
+          <FinishScreen
+            dispatch={dispatch}
+            points={points}
+            highScore={highScore}
+            length={length}
+            timeRemaining={timeRemaining}
+          />
+        )}
+        {dialog &&
+          createPortal(
+            <AlertScreen dispatch={dispatch} setDialog={setDialog} />,
+            document.querySelector('#dialog')
+          )}
+      </Main>
     </div>
   );
 }

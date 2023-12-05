@@ -4,9 +4,11 @@ import Button from './Button';
 
 export default function AlertScreen({ dispatch, setDialog }) {
   return (
-    <div>
+    <div className='container-dialog '>
       <h3>Are you sure you want to end the quiz?</h3>
       <Button
+        bgColor='var(--danger)'
+        color='var(--background)'
         onClick={() => {
           dispatch({ type: 'finish' });
           setDialog(false);
@@ -14,7 +16,13 @@ export default function AlertScreen({ dispatch, setDialog }) {
       >
         Yes
       </Button>
-      <Button onClick={() => setDialog(false)}>No</Button>
+      <Button
+        bgColor='var(--dominant-secondary)'
+        color='var(--background)'
+        onClick={() => setDialog(false)}
+      >
+        No
+      </Button>
     </div>
   );
 }
