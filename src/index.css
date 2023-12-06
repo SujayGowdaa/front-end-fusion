@@ -63,17 +63,17 @@ button {
   border-radius: 0.5rem;
   font-family: 'Londrina Solid', sans-serif;
   font-size: 2rem;
-  padding: 1rem 5rem;
   cursor: pointer;
+  padding: 1rem 2rem;
 }
 
 .btn-shadow {
-  filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.3));
   transition: all 0.3s ease-out;
 }
 
 .btn:hover {
-  filter: drop-shadow(8px 8px 16px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(8px 8px 16px rgba(0, 0, 0, 0.2));
   transition: all 0.1s ease-in;
   transform: scale(1.05);
 }
@@ -88,6 +88,7 @@ button {
   margin: auto;
   padding: 8rem;
   user-select: none;
+  border-radius: 1rem;
 }
 
 .header {
@@ -107,6 +108,7 @@ button {
   box-sizing: content-box;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .switch {
   height: 1.8rem;
@@ -119,6 +121,7 @@ button {
   align-items: center;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.6));
   transition: transform 0.3s ease-out;
+  cursor: pointer;
 }
 
 .icon {
@@ -137,6 +140,7 @@ button {
   line-height: 1;
   color: var(--dominant);
   margin-bottom: 1rem;
+  font-weight: 300;
 }
 .title-secondary {
   font-size: 2rem;
@@ -168,6 +172,7 @@ button {
   overflow: hidden;
   transition: all 0.3s ease-out;
   margin-bottom: 4rem;
+  cursor: pointer;
 }
 
 .image-topic-container:hover {
@@ -208,6 +213,7 @@ button {
   background-color: var(--grey-secondary);
   border-radius: 10%;
   transition: all 0.3s ease-out;
+  cursor: pointer;
 }
 
 .container-radio span::after {
@@ -246,6 +252,7 @@ button {
   font-weight: 300;
   color: var(--grey-secondary);
   margin-left: 2.4rem;
+  cursor: pointer;
 }
 
 .container-quiz {
@@ -447,12 +454,57 @@ button {
   border-radius: 0.5rem;
   overflow: hidden;
   outline: 0.25rem solid var(--dominant-secondary);
-
-  /* border-radius: 3px; */
 }
 
 .progress-bar-fill {
   height: 2rem;
   background-color: var(--dominant-tertiary);
   transition: all 0.6s ease-out;
+}
+
+.main-message {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--danger);
+}
+.main-message-new {
+  color: var(--gold);
+}
+
+.sec-message {
+  font-size: 1rem;
+  color: var(--grey);
+}
+
+.container-score {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.main-score {
+  font-size: 2rem;
+  color: var(--gold);
+}
+.sec-score {
+  font-size: 1rem;
+  color: var(--grey);
+  margin-left: 1px;
+}
+
+.container-highscore {
+  margin-bottom: 3rem;
+}
+.main-hs {
+  font-size: 1.5rem;
+  color: var(--grey-secondary);
+}
+.sec-hs {
+  font-size: 1rem;
+  color: var(--grey);
+  margin-left: 1px;
+}
+
+.btn-challenge {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
 }
