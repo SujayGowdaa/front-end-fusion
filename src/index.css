@@ -244,6 +244,7 @@ button {
   background: #5214cc;
   background: linear-gradient(to right, #5214cc 0%, #6649f2 50%, #e52817 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .title-secondary {
@@ -619,6 +620,46 @@ button {
 .btn-challenge {
   font-size: 1.5rem;
   padding: 1rem 2rem;
+}
+
+.footer {
+  display: flex;
+  margin-top: 4rem;
+}
+
+.container-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.developer-title {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--grey-secondary);
+}
+.developer-name a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--dominant);
+}
+.developer-name {
+  text-align: left;
+  transition: all 0.3s ease-out;
+  margin-bottom: 0.3rem;
+}
+.developer-name:hover a {
+  transition: all 0.1s ease-in;
+  color: var(--danger);
+}
+.developer-name:active {
+  transform: scale(0.95);
+}
+
+.last-updated {
+  font-size: 0.6rem;
+  color: var(--grey-tertiary);
+  font-weight: 300;
 }
 
 @media (max-width: 1180px) {
