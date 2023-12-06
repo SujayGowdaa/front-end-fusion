@@ -5,7 +5,7 @@ import Input from './Input';
 import Button from './Button';
 import Topic from './Topic';
 
-export default function Form({ dispatch }) {
+export default function Form({ dispatch, highScore }) {
   const [selected, setSelected] = useState(null);
   const [inputs, setInputs] = useState({
     topic: '',
@@ -14,7 +14,7 @@ export default function Form({ dispatch }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch({ type: 'start', payload: inputs });
+    dispatch({ type: 'start', payload: { inputs, highScore } });
   }
 
   return (

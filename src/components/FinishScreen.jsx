@@ -8,6 +8,7 @@ export default function FinishScreen({
   points,
   length,
   timeRemaining,
+  prevGameHS,
 }) {
   const convertedHS = highScore * 10;
   const convertedS = points * 10;
@@ -20,6 +21,7 @@ export default function FinishScreen({
         {timeRemaining === 0 && (
           <span className='main-message'>
             » Time is Up! 😓<span className='sec-message'> Try again...</span>
+            <br />
           </span>
         )}
         {percentage > 90 && percentage >= 100 && (
@@ -40,22 +42,23 @@ export default function FinishScreen({
         {percentage <= 20 && (
           <span className='main-message'>» That's Dissapointing 😓</span>
         )}
-        {points > highScore && (
-          <>
-            <span className='main-message main-message-new'>
-              <br /> » You have set the new High Score 🥳
-            </span>
-          </>
-        )}
+        {points > highScore ||
+          (points > prevGameHS && (
+            <div>
+              <span className='main-message main-message-new'>
+                <br /> » You have set the new High Score 🥳
+              </span>
+            </div>
+          ))}
       </div>
       <div className='container-score'>
         <span className='sec-score'>
           Your Score:{' '}
           <span className='main-score'>
-            {convertedS < Number(9) ? `0${convertedS} ` : ` ${convertedS}`}
+            {convertedS < Number(9) ? `0${convertedS}` : `${convertedS}`}
           </span>
           <span className='sec-score'>
-            {percentage < Number(9) ? `/0${percentage}` : ` / ${percentage}`}%
+            {percentage < Number(9) ? `/0${percentage}` : `/${percentage}`}%
           </span>
         </span>
       </div>

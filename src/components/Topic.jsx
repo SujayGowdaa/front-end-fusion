@@ -21,7 +21,7 @@ export default function Topic({ topic, setInputs, selected, setSelected }) {
           (topic === 'JS' && js) ||
           (topic === 'REACT' && react)
         }
-        alt=''
+        alt={topic}
       />
     </div>
   );

@@ -32,11 +32,13 @@ const initialState = {
   highScore: 0,
   answer: null,
   length: undefined,
+  prevGameHS: 0,
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case 'start':
+      console.log(action.payload.highScore);
       if (action.payload.topic === '' && action.payload.mode === '') {
         return { ...state, error: 'Select Topic and Mode' };
       } else if (action.payload.topic === '') {
@@ -44,13 +46,20 @@ function reducer(state, action) {
       } else if (action.payload.mode === '') {
         return { ...state, error: 'Select Mode' };
       } else {
-        if (action.payload.topic === 'HTML' && action.payload.mode === 'EASY')
+        if (
+          action.payload.inputs.topic === 'HTML' &&
+          action.payload.inputs.mode === 'EASY'
+        )
           return {
             ...state,
             status: 'active',
             questions: htmlEasy,
             length: htmlEasy.length,
             timeRemaining: htmlEasy.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (action.payload.topic === 'HTML' && action.payload.mode === 'MEDIUM')
           return {
@@ -97,6 +106,8 @@ function reducer(state, action) {
             ...state,
             status: 'active',
             questions: jsEasy,
+            length: jsEasy.length,
+            timeRemaining: jsEasy.length * 15,
           };
         if (action.payload.topic === 'JS' && action.payload.mode === 'MEDIUM')
           return {
@@ -172,7 +183,12 @@ function reducer(state, action) {
           state.points > state.highScore ? state.points : state.highScore,
       };
     case 'finish':
-      return { ...state, status: 'finish' };
+      return {
+        ...state,
+        status: 'finish',
+        highScore:
+          state.points > state.highScore ? state.points : state.highScore,
+      };
     case 'restart':
       return { ...state, ...initialState, highScore: state.highScore };
   }
@@ -193,12 +209,14 @@ function App() {
       points,
       highScore,
       timeRemaining,
+      prevGameHS,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
 
   return (
     <div className='app' theme={theme}>
+      <div id='dialog'></div>
       {(status === 'form' || status === 'finish') && (
         <Header setTheme={setTheme} theme={theme} />
       )}
@@ -208,7 +226,11 @@ function App() {
             <h2 className='title-secondary'>
               Challenge Yourself, Master the Frontend!
             </h2>
-            <Form dispatch={dispatch} />
+            <Form
+              dispatch={dispatch}
+              highScore={highScore}
+              prevGameHS={prevGameHS}
+            />
           </>
         )}
         {error && <Error error={error} />}
@@ -230,6 +252,7 @@ function App() {
             highScore={highScore}
             length={length}
             timeRemaining={timeRemaining}
+            prevGameHS={prevGameHS}
           />
         )}
         {dialog &&

@@ -10,17 +10,19 @@ export default function Button({
   outline,
 }) {
   return (
-    <button
-      style={{
-        backgroundColor: bgColor,
-        color: color,
-        outline: outline,
-      }}
-      className={`btn ${className}`}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      {children}
-    </button>
+    <div className='container-btn'>
+      <button
+        style={{
+          backgroundColor: bgColor,
+          color: color,
+          outline: outline,
+        }}
+        className={`btn ${className}`}
+        disabled={disabled}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    </div>
   );
 }
