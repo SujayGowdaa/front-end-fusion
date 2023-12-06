@@ -11,11 +11,22 @@ export default function Timer({ dispatch, timeRemaining }) {
 
   const mins = Math.floor(timeRemaining / 60);
   const secs = timeRemaining % 60;
+  const alert = timeRemaining < 60;
+
   return (
-    <div>
-      {mins < 10 && 0}
-      {mins}:{secs < 10 && 0}
-      {secs}
+    <div className='container-progress'>
+      <span className='progress-title timing'>Time Remaining</span>
+      <span>
+        <span className={`main ${alert && 'alert-main'}`}>
+          {mins < 10 && 0}
+          {mins}:
+        </span>
+
+        <span className={`sec ${alert && 'alert-sec'}`}>
+          {secs < 10 && 0}
+          {secs}
+        </span>
+      </span>
     </div>
   );
 }

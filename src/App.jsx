@@ -199,10 +199,12 @@ function App() {
 
   return (
     <div className='app' theme={theme}>
+      {(status === 'form' || status === 'finish') && (
+        <Header setTheme={setTheme} theme={theme} />
+      )}
       <Main>
         {status === 'form' && (
           <>
-            <Header setTheme={setTheme} theme={theme} />
             <h2 className='title-secondary'>
               Challenge Yourself, Master the Frontend!
             </h2>

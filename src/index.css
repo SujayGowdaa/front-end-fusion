@@ -12,7 +12,8 @@
   --danger: #e52817;
   --danger-secondary: #b20f00;
   --danger-tertiary: #ff5b4d;
-  --gold: #ffd900;
+  --gold: #f7d200;
+  --gold-secondary: #e1bb00;
 }
 .app[theme='dark'] {
   --background: #100f1c;
@@ -26,7 +27,14 @@
   --danger: #e52817;
   --danger-secondary: #ff5b4d;
   --danger-tertiary: #b20f00;
-  --gold: #ffd900;
+  --gold: #f7d200;
+  --gold-secondary: rgb(255, 229, 32);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -38,17 +46,6 @@ body {
   justify-content: center;
   background-color: #363640;
   height: 100vh;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
 }
 
 button {
@@ -66,7 +63,8 @@ button {
   border-radius: 0.5rem;
   font-family: 'Londrina Solid', sans-serif;
   font-size: 2rem;
-  padding: 1.5rem 3rem;
+  padding: 1rem 5rem;
+  cursor: pointer;
 }
 
 .btn-shadow {
@@ -80,13 +78,15 @@ button {
   transform: scale(1.05);
 }
 
+.btn:active {
+  transform: scale(1);
+}
+
 .app {
   background-color: var(--background) !important;
   width: 1440px;
-  max-height: 100vh;
   margin: auto;
   padding: 8rem;
-
   user-select: none;
 }
 
@@ -98,24 +98,27 @@ button {
 
 .body-switch {
   background-color: var(--dominant);
-  width: 4.5rem;
-  height: 2rem;
+  width: 4rem;
+  height: 1.8rem;
   border-radius: 2rem;
   padding: 0.3rem;
   outline: 0.26rem solid var(--dominant-secondary);
   position: relative;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
 }
 .switch {
-  height: 2rem;
-  width: 2rem;
+  height: 1.8rem;
+  width: 1.8rem;
   border-radius: 1rem;
   background-color: var(--background);
   outline: 0.2rem solid var(--dominant-secondary);
-  transition: transform 0.3s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.6));
+  transition: transform 0.3s ease-out;
 }
 
 .icon {
@@ -136,15 +139,18 @@ button {
   margin-bottom: 1rem;
 }
 .title-secondary {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 4rem;
-  color: var(--main);
+  color: var(--grey);
+  font-weight: 400;
 }
 
 .title-tertiary {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: var(--grey-secondary);
+  color: var(--main);
+  text-transform: uppercase;
+  font-weight: 400;
 }
 .active {
   outline: 0.4rem solid var(--main);
@@ -167,6 +173,10 @@ button {
 .image-topic-container:hover {
   transform: scale(1.1);
   transition: all 0.1s ease-in;
+}
+
+.image-topic-container:active {
+  transform: scale(1);
 }
 
 .image-topic {
@@ -193,8 +203,8 @@ button {
 
 .container-radio span {
   position: absolute;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   background-color: var(--grey-secondary);
   border-radius: 10%;
   transition: all 0.3s ease-out;
@@ -224,6 +234,9 @@ button {
   transition: all 0.1s ease-in;
   transform: scale(1.1);
 }
+.container-radio:active span {
+  transform: scale(1);
+}
 .container-radio:hover span::after {
   background-color: var(--dominant-tertiary);
 }
@@ -232,27 +245,214 @@ button {
   font-size: 2rem;
   font-weight: 300;
   color: var(--grey-secondary);
-  margin-left: 3rem;
+  margin-left: 2.4rem;
 }
 
-.radio {
-  width: 1.4rem;
-  height: 1.4rem;
+.container-quiz {
+  display: flex;
+  gap: 5rem;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.container-quiz-qna {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.question {
+  font-size: 2rem;
+  color: var(--main);
+}
+
+.container-ans {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn-ans {
+  text-align: left;
+  font-size: 1.125rem;
+  font-weight: 300;
+  background-color: var(--grey-tertiary);
+  border-radius: 0.5rem;
+  padding: 0.8rem 2rem;
+  transition: all 0.3s ease-out;
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.app[theme='dark'] .btn-ans {
+  color: var(--grey-secondary) !important;
+}
+
+.btn-ans:hover {
+  transition: all 0.1s ease-in;
+  transform: scale(1.02);
+  filter: drop-shadow(6px 6px 12px rgba(0, 0, 0, 0.3));
+  background-color: var(--dominant);
+  outline: 0.25rem solid var(--dominant-secondary);
+}
+
+.app[theme='dark'] .btn-ans:hover {
+  color: var(--main) !important;
 }
 
 .correct {
   background-color: var(--dominant);
-}
-.wrong {
-  background-color: red;
-}
-.selected {
-  background-color: yellow;
+  outline: 0.25rem solid var(--dominant-secondary);
 }
 
-.blue {
-  background-color: blue;
+.app[theme='dark'] .correct {
+  color: var(--main) !important;
 }
-.orange {
-  background-color: orange;
+
+.wrong {
+  background-color: var(--danger);
+  outline: 0.25rem solid var(--danger-secondary);
+}
+
+.app[theme='dark'] .wrong {
+  background-color: var(--danger);
+  outline: 0.25rem solid var(--danger-secondary);
+  color: var(--main) !important;
+}
+
+.wrong:hover {
+  background-color: var(--danger);
+  outline: 0.25rem solid var(--danger-secondary);
+  color: var(--main);
+}
+
+.container-btns {
+  display: flex;
+  gap: 4rem;
+}
+
+.btn-sec {
+  padding: 0.5rem 1rem;
+  width: 15rem;
+  font-size: 1rem;
+  transition: all 0.2s ease-out;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0));
+}
+.btn-sec:hover {
+  filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0));
+}
+
+.btn-next:disabled,
+.btn-finish:disabled {
+  background-color: var(--dominant-tertiary);
+  outline: 0.25rem solid var(--dominant-secondary);
+  cursor: not-allowed;
+}
+
+.app[theme='dark'] .btn-next:disabled {
+  background-color: var(--dominant-secondary);
+  outline: 0.25rem solid var(--dominant-secondary);
+}
+.btn-next {
+  background-color: var(--dominant);
+  outline: 0.25rem solid var(--dominant-secondary);
+}
+.app[theme='dark'] .btn-finish:disabled {
+  background-color: var(--dominant-secondary);
+  outline: 0.25rem solid var(--dominant-secondary);
+  cursor: not-allowed;
+}
+.btn-finish {
+  background-color: var(--dominant);
+  outline: 0.25rem solid var(--dominant-secondary);
+}
+
+.btn-end {
+  background-color: transparent;
+  color: var(--danger) !important;
+  outline: 0.25rem solid var(--danger);
+}
+.btn-end:hover {
+  background-color: var(--danger);
+  outline: 0.25rem solid var(--danger-secondary);
+  color: var(--main) !important;
+}
+.app[theme='light'] .btn-end:hover {
+  color: white !important;
+}
+
+.container-quiz-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.container-quiz-progress > h3 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--grey-tertiary);
+  /* white-space: unset; */
+}
+
+.container-progress {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.progress-title {
+  display: block;
+  color: var(--main);
+  font-size: 1rem;
+  font-weight: 300;
+  order: 2;
+  color: var(--grey);
+}
+
+.main {
+  font-size: 2rem;
+  color: var(--dominant);
+}
+.sec {
+  font-size: 1rem;
+  color: var(--grey);
+  font-weight: 300;
+  display: inline-block;
+  width: 1.2rem;
+}
+
+.alert-main {
+  display: none;
+  visibility: hidden;
+}
+
+.alert-sec {
+  color: var(--danger);
+  font-size: 2rem;
+  display: inline-block;
+  width: 2rem;
+}
+
+.container-progress-bar {
+  position: relative;
+  /* width: 100%; */
+}
+
+.progress-bar {
+  height: 2rem;
+  width: 100%;
+  background-color: var(--dominant-secondary);
+  position: absolute;
+  top: 160%;
+  left: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  outline: 0.25rem solid var(--dominant-secondary);
+
+  /* border-radius: 3px; */
+}
+
+.progress-bar-fill {
+  height: 2rem;
+  background-color: var(--dominant-tertiary);
+  transition: all 0.6s ease-out;
 }

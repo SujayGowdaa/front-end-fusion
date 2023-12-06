@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import Button from './Button';
-import ProgressBar from './ProgressBar';
-import Timer from './Timer';
+import Progress from './Progress';
 
 export default function Questions({
   dispatch,
@@ -9,58 +8,76 @@ export default function Questions({
   index,
   answer,
   length,
-  timeRemaining,
   setDialog,
+  timeRemaining,
 }) {
   const isAnswered = answer !== null;
 
   return (
     <>
-      <ProgressBar length={length} index={index} answer={answer} />
-      <h2>
-        <span>{index + 1}.</span>
-        {questions.question}
-      </h2>
-      <Timer timeRemaining={timeRemaining} dispatch={dispatch} />
-      {questions.answers.map((ans, index) => (
-        <div key={ans}>
-          <Button
-            onClick={() => {
-              dispatch({ type: 'new', payload: index });
-            }}
-            disabled={isAnswered}
-            className={`${
-              isAnswered
-                ? questions.correctAnswer === index
-                  ? 'correct'
-                  : 'selected'
-                : ''
-            } ${answer === index && 'blue'} ${
-              answer === questions.correctAnswer &&
-              questions.correctAnswer === index &&
-              'orange'
-            }`}
-          >
-            {ans}
-          </Button>
+      <div className='container-quiz'>
+        <div className='container-quiz-qna'>
+          <h2 className='question'>
+            <span>0{index + 1}. </span>
+            {questions.question}
+          </h2>
+          <div className='container-ans'>
+            {questions.answers.map((ans, index) => (
+              <Button
+                key={ans}
+                onClick={() => {
+                  dispatch({ type: 'new', payload: index });
+                }}
+                disabled={isAnswered}
+                className={`btn-ans ${
+                  isAnswered
+                    ? (answer === index &&
+                        answer !== questions.correctAnswer &&
+                        'wrong wrong-ans') ||
+                      (questions.correctAnswer === index &&
+                        'correct wrong-ans') ||
+                      (answer === index &&
+                        answer === questions.correctAnswer &&
+                        'correct wrong-ans')
+                    : ''
+                }`}
+              >
+                {ans}
+              </Button>
+            ))}
+          </div>
         </div>
-      ))}
-      <Button onClick={() => setDialog(true)}>End</Button>
-      {length === index + 1 ? (
-        <Button
-          onClick={() => dispatch({ type: 'finish' })}
-          disabled={!isAnswered}
-        >
-          Finish
+
+        <Progress
+          timeRemaining={timeRemaining}
+          dispatch={dispatch}
+          length={length}
+          index={index}
+          answer={answer}
+        />
+      </div>
+      <div className='container-btns '>
+        <Button className='btn-end btn-sec' onClick={() => setDialog(true)}>
+          End
         </Button>
-      ) : (
-        <Button
-          onClick={() => dispatch({ type: 'next' })}
-          disabled={!isAnswered}
-        >
-          Next
-        </Button>
-      )}
+        {length === index + 1 ? (
+          <Button
+            className='btn-finish btn-sec'
+            onClick={() => dispatch({ type: 'finish' })}
+            disabled={!isAnswered}
+          >
+            Finish
+          </Button>
+        ) : (
+          <Button
+            className='btn-next btn-sec'
+            onClick={() => dispatch({ type: 'next' })}
+            disabled={!isAnswered}
+          >
+            Next
+          </Button>
+        )}
+      </div>
     </>
   );
 }
