@@ -57,6 +57,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: htmlEasy,
             length: htmlEasy.length,
             timeRemaining: htmlEasy.length * 15,
@@ -72,6 +73,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: htmlMedium,
             length: htmlMedium.length,
             timeRemaining: htmlMedium.length * 15,
@@ -87,6 +89,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: htmlHard,
             length: htmlHard.length,
             timeRemaining: htmlHard.length * 15,
@@ -102,6 +105,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: cssEasy,
             length: cssEasy.length,
             timeRemaining: cssEasy.length * 15,
@@ -117,6 +121,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: cssMedium,
             length: cssMedium.length,
             timeRemaining: cssMedium.length * 15,
@@ -132,6 +137,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: cssHard,
             length: cssHard.length,
             timeRemaining: cssHard.length * 15,
@@ -147,6 +153,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: jsEasy,
             length: jsEasy.length,
             timeRemaining: jsEasy.length * 15,
@@ -162,6 +169,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: jsMedium,
             length: jsMedium.length,
             timeRemaining: jsMedium.length * 15,
@@ -177,6 +185,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: jsHard,
             length: jsHard.length,
             timeRemaining: jsHard.length * 15,
@@ -192,6 +201,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: reactEasy,
             length: reactEasy.length,
             timeRemaining: reactEasy.length * 15,
@@ -207,6 +217,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: reactMedium,
             length: reactMedium.length,
             timeRemaining: reactMedium.length * 15,
@@ -222,6 +233,7 @@ function reducer(state, action) {
           return {
             ...state,
             status: 'active',
+            error: '',
             questions: reactHard,
             length: reactHard.length,
             timeRemaining: reactHard.length * 15,
