@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 
 export default function Timer({ dispatch, timeRemaining }) {
   useEffect(() => {
-    // const timeInterval = setInterval(() => {
-    //   dispatch({ type: 'runnng' });
-    // }, 1000);
-    // return () => clearInterval(timeInterval);
+    const timeInterval = setInterval(() => {
+      dispatch({ type: 'runnng' });
+    }, 1000);
+    return () => clearInterval(timeInterval);
   }, [dispatch]);
 
   const mins = Math.floor(timeRemaining / 60);

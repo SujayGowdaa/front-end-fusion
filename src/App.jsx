@@ -21,6 +21,7 @@ import AlertScreen from './components/AlertScreen';
 import { createPortal } from 'react-dom';
 import Header from './components/Header';
 import Main from './components/Main';
+import Footer from './components/Footer';
 
 const initialState = {
   questions: [],
@@ -246,14 +247,17 @@ function App() {
           />
         )}
         {status === 'finish' && (
-          <FinishScreen
-            dispatch={dispatch}
-            points={points}
-            highScore={highScore}
-            length={length}
-            timeRemaining={timeRemaining}
-            prevGameHS={prevGameHS}
-          />
+          <>
+            <FinishScreen
+              dispatch={dispatch}
+              points={points}
+              highScore={highScore}
+              length={length}
+              timeRemaining={timeRemaining}
+              prevGameHS={prevGameHS}
+            />
+            <Footer />
+          </>
         )}
         {dialog &&
           createPortal(
