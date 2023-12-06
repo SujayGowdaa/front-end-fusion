@@ -19,11 +19,11 @@ export default function Timer({ dispatch, timeRemaining }) {
       <span>
         <span className={`main ${alert && 'alert-main'}`}>
           {mins < 10 && 0}
-          {mins}
+          {mins}:
         </span>
 
         <span className={`sec ${alert && 'alert-sec'}`}>
-          :{secs < 10 && 0}
+          {secs < 10 && 0}
           {secs}
         </span>
       </span>

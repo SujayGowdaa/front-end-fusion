@@ -45,9 +45,9 @@ function reducer(state, action) {
         action.payload.inputs.mode === ''
       ) {
         return { ...state, error: 'Select Topic and Mode' };
-      } else if (action.payload.topic === '') {
+      } else if (action.payload.inputs.topic === '') {
         return { ...state, error: 'Select Topic' };
-      } else if (action.payload.mode === '') {
+      } else if (action.payload.inputs.mode === '') {
         return { ...state, error: 'Select Mode' };
       } else {
         if (
@@ -75,6 +75,10 @@ function reducer(state, action) {
             questions: htmlMedium,
             length: htmlMedium.length,
             timeRemaining: htmlMedium.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'HTML' &&
@@ -86,6 +90,10 @@ function reducer(state, action) {
             questions: htmlHard,
             length: htmlHard.length,
             timeRemaining: htmlHard.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'CSS' &&
@@ -97,6 +105,10 @@ function reducer(state, action) {
             questions: cssEasy,
             length: cssEasy.length,
             timeRemaining: cssEasy.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'CSS' &&
@@ -108,6 +120,10 @@ function reducer(state, action) {
             questions: cssMedium,
             length: cssMedium.length,
             timeRemaining: cssMedium.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'CSS' &&
@@ -119,6 +135,10 @@ function reducer(state, action) {
             questions: cssHard,
             length: cssHard.length,
             timeRemaining: cssHard.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'JS' &&
@@ -130,6 +150,10 @@ function reducer(state, action) {
             questions: jsEasy,
             length: jsEasy.length,
             timeRemaining: jsEasy.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'JS' &&
@@ -141,6 +165,10 @@ function reducer(state, action) {
             questions: jsMedium,
             length: jsMedium.length,
             timeRemaining: jsMedium.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'JS' &&
@@ -152,6 +180,10 @@ function reducer(state, action) {
             questions: jsHard,
             length: jsHard.length,
             timeRemaining: jsHard.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'REACT' &&
@@ -163,6 +195,10 @@ function reducer(state, action) {
             questions: reactEasy,
             length: reactEasy.length,
             timeRemaining: reactEasy.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'REACT' &&
@@ -174,6 +210,10 @@ function reducer(state, action) {
             questions: reactMedium,
             length: reactMedium.length,
             timeRemaining: reactMedium.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
         if (
           action.payload.inputs.topic === 'REACT' &&
@@ -185,6 +225,10 @@ function reducer(state, action) {
             questions: reactHard,
             length: reactHard.length,
             timeRemaining: reactHard.length * 15,
+            prevGameHS:
+              state.prevGameHS > action.payload.highScore
+                ? state.prevGameHS
+                : action.payload.highScore,
           };
       }
       break;
