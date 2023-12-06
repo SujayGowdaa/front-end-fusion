@@ -40,7 +40,10 @@ function reducer(state, action) {
   switch (action.type) {
     case 'start':
       console.log(action.payload.highScore);
-      if (action.payload.topic === '' && action.payload.mode === '') {
+      if (
+        action.payload.inputs.topic === '' &&
+        action.payload.inputs.mode === ''
+      ) {
         return { ...state, error: 'Select Topic and Mode' };
       } else if (action.payload.topic === '') {
         return { ...state, error: 'Select Topic' };
@@ -62,7 +65,10 @@ function reducer(state, action) {
                 ? state.prevGameHS
                 : action.payload.highScore,
           };
-        if (action.payload.topic === 'HTML' && action.payload.mode === 'MEDIUM')
+        if (
+          action.payload.inputs.topic === 'HTML' &&
+          action.payload.inputs.mode === 'MEDIUM'
+        )
           return {
             ...state,
             status: 'active',
@@ -70,7 +76,10 @@ function reducer(state, action) {
             length: htmlMedium.length,
             timeRemaining: htmlMedium.length * 15,
           };
-        if (action.payload.topic === 'HTML' && action.payload.mode === 'HARD')
+        if (
+          action.payload.inputs.topic === 'HTML' &&
+          action.payload.inputs.mode === 'HARD'
+        )
           return {
             ...state,
             status: 'active',
@@ -78,7 +87,10 @@ function reducer(state, action) {
             length: htmlHard.length,
             timeRemaining: htmlHard.length * 15,
           };
-        if (action.payload.topic === 'CSS' && action.payload.mode === 'EASY')
+        if (
+          action.payload.inputs.topic === 'CSS' &&
+          action.payload.inputs.mode === 'EASY'
+        )
           return {
             ...state,
             status: 'active',
@@ -86,7 +98,10 @@ function reducer(state, action) {
             length: cssEasy.length,
             timeRemaining: cssEasy.length * 15,
           };
-        if (action.payload.topic === 'CSS' && action.payload.mode === 'MEDIUM')
+        if (
+          action.payload.inputs.topic === 'CSS' &&
+          action.payload.inputs.mode === 'MEDIUM'
+        )
           return {
             ...state,
             status: 'active',
@@ -94,7 +109,10 @@ function reducer(state, action) {
             length: cssMedium.length,
             timeRemaining: cssMedium.length * 15,
           };
-        if (action.payload.topic === 'CSS' && action.payload.mode === 'HARD')
+        if (
+          action.payload.inputs.topic === 'CSS' &&
+          action.payload.inputs.mode === 'HARD'
+        )
           return {
             ...state,
             status: 'active',
@@ -102,7 +120,10 @@ function reducer(state, action) {
             length: cssHard.length,
             timeRemaining: cssHard.length * 15,
           };
-        if (action.payload.topic === 'JS' && action.payload.mode === 'EASY')
+        if (
+          action.payload.inputs.topic === 'JS' &&
+          action.payload.inputs.mode === 'EASY'
+        )
           return {
             ...state,
             status: 'active',
@@ -110,7 +131,10 @@ function reducer(state, action) {
             length: jsEasy.length,
             timeRemaining: jsEasy.length * 15,
           };
-        if (action.payload.topic === 'JS' && action.payload.mode === 'MEDIUM')
+        if (
+          action.payload.inputs.topic === 'JS' &&
+          action.payload.inputs.mode === 'MEDIUM'
+        )
           return {
             ...state,
             status: 'active',
@@ -118,7 +142,10 @@ function reducer(state, action) {
             length: jsMedium.length,
             timeRemaining: jsMedium.length * 15,
           };
-        if (action.payload.topic === 'JS' && action.payload.mode === 'HARD')
+        if (
+          action.payload.inputs.topic === 'JS' &&
+          action.payload.inputs.mode === 'HARD'
+        )
           return {
             ...state,
             status: 'active',
@@ -126,7 +153,10 @@ function reducer(state, action) {
             length: jsHard.length,
             timeRemaining: jsHard.length * 15,
           };
-        if (action.payload.topic === 'REACT' && action.payload.mode === 'EASY')
+        if (
+          action.payload.inputs.topic === 'REACT' &&
+          action.payload.inputs.mode === 'EASY'
+        )
           return {
             ...state,
             status: 'active',
@@ -135,8 +165,8 @@ function reducer(state, action) {
             timeRemaining: reactEasy.length * 15,
           };
         if (
-          action.payload.topic === 'REACT' &&
-          action.payload.mode === 'MEDIUM'
+          action.payload.inputs.topic === 'REACT' &&
+          action.payload.inputs.mode === 'MEDIUM'
         )
           return {
             ...state,
@@ -145,7 +175,10 @@ function reducer(state, action) {
             length: reactMedium.length,
             timeRemaining: reactMedium.length * 15,
           };
-        if (action.payload.topic === 'REACT' && action.payload.mode === 'HARD')
+        if (
+          action.payload.inputs.topic === 'REACT' &&
+          action.payload.inputs.mode === 'HARD'
+        )
           return {
             ...state,
             status: 'active',
